@@ -1,0 +1,50 @@
+.container{
+    display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+
+.book-container{
+    width: 500px;
+    height: 500px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-rows: repeat(3, 1fr);
+    justify-content: center;
+}
+
+.book{
+    border: 2px solid black;
+}
+
+.new-book-form{
+    /* display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center; */
+}
+
+.form{
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 80%;
+    height: 400px;
+ 
+    
+
+}
+
+.form-part{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.alter-label{
+    width: 100px;
+    display: inline-block;
+}
