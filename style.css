@@ -18,7 +18,7 @@ align-items: center;
     border: 2px solid black;
 }
 
-.new-book-form{
+#new-book-form{
     /* display: flex;
     flex-direction: column;
     justify-content: space-between;
