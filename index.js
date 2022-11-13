@@ -1,12 +1,39 @@
-const newBook = document.querySelector(".new-book");
-const title = document.querySelector("#title");
-// newBook.addEventListener("click", addBookToLirary)
-const addBook = document.querySelector(".add-book-button");
-addBook.addEventListener("click", displayTheForm);
-document.getElementById("add-book-form")
 
 
 
+const addNewBook = document.querySelector(".new-book");
+let bookTitle = document.getElementById("title");
+const bookAuthor = document.getElementById("author");
+const bookPages = document.getElementById("pages");
+const bookRead = document.getElementById("read");
+let ifRead =document.querySelector("#read");
+
+//newBook.addEventListener("click", addBookToLirary)
+
+//gets info from the input boxes without sending data
+addNewBook.addEventListener("click", function (e) {
+e.preventDefault();
+let newTitle = document.querySelector("#title");
+let newAuthor = document.querySelector("#author");
+let newPages = document.querySelector("#pages");
+let newRead = document.getElementById("read");
+console.log(newRead.checked);
+
+if(document.getElementById("read").checked == true){
+  addBookToLirary(newTitle.value, newAuthor.value, newPages.value, "Read");
+} else {
+  addBookToLirary(newTitle.value, newAuthor.value, newPages.value, "Not Read");
+}
+
+
+  displayBooks();
+});
+
+
+let myLibrary = [];
+
+let title =  document.getElementById("title").value;
+console.log(title);
 // book cunstructor
 
 function Book(Title, Author, Pages, Read){
@@ -15,61 +42,33 @@ this.Author = Author;
 this.Pages = Pages;
 this.Read = Read;
 
-/*
-this.info = function() {
-    let info = ""
-    return info = Title + " by " + Author + ", " + Pages + " pages, " + Read +".";
-  }
-  */
 }
 
 function addBookToLirary(Title, Author, Pages, Read){
 let book = new Book(Title, Author, Pages, Read);
 myLibrary.push(book);
-displayBooks();
+
+//console.log(title.innerHTML);
 }
-
-const submitBook = document.querySelector(".submit-button");
-submitBook.addEventListener("click", intakeFormData);
-
-
-function intakeFormData(){
-  let Title = document.getElementById("Title").value;
-  let Author =document.getElementById("Author").value;
-  let Pages = document.getElementById("Pages").value;
-  let Read = document.getElementById("Read").value;
-
-  if ((title == "") || (Author == "") || (Pages == "") || (Read ="")){
-    return;
-  }
-
-  function addBookToLirary(Title, Author, Pages, Read);
-
-  document.getElementById("add-book").reset();
-}
- 
-function displayTheForm(){
-  document.getElementById("new-book-form").style.display = "";
-}
-
 
 function displayBooks(){
   const bookContainer = document.querySelector(".book-container");
 
-const removeDivs = document.querySelectorAll(".book");
+  const removeDivs = document.querySelectorAll(".book");
 console.log("show how many", removeDivs);
 for(let i = 0; i < removeDivs.length; i++){
 removeDivs[i].remove();
 }
+
 
 myLibrary.forEach(myLibrary => {
 
   let newbook = document.createElement("div");
   newbook.classList.add("book");
   bookContainer.appendChild(newbook);
- 
+
 for(let key in myLibrary){
-console.log(`${key}: ${myLibrary[key]}`);
+//console.log(`${key}: ${myLibrary[key]}`);
 const para = document.createElement("p");
 para.textContent = (`${key}: ${myLibrary[key]}`)
 newbook.appendChild(para); 
@@ -77,17 +76,23 @@ newbook.appendChild(para);
 }
 })
 }
+
+addBookToLirary("The Hobbit", "J.R.R. Tolkein", "123 pages", "not Read");
+addBookToLirary("Warriors: The Prophecies Begin", "Erin Hunter", "1111 pages", "Read")
+addBookToLirary("The Hobbit", "J.R.R. Tolkein", "123 pages", "not Read");
+addBookToLirary("Warriors: The Prophecies Begin", "Erin Hunter", "1111 pages", "Read")
+
+
+
+displayBooks();
+
 /*
-const theHobbit = new Book("The Hobbit", "Peter Jackson", 123, "Read");
-myLibrary.push(theHobbit);
-displayBooks();
+function doThing(){
+  e.preventDefault();
+  let newTitle = document.querySelector("#title");
+  console.log("asddsa");
+  addBookToLirary(newTitle.value, "sasa", "ssasd", "iusd");
+  displayBooks();
+  
+}
 */
-addBookToLirary("The Hobbit", "J.R.R. Tolkein", "123 pages", "not Read");
-addBookToLirary("Warriors: The Prophecies Begin", "Erin Hunter", "1111 pages", "Read")
-addBookToLirary("The Hobbit", "J.R.R. Tolkein", "123 pages", "not Read");
-addBookToLirary("Warriors: The Prophecies Begin", "Erin Hunter", "1111 pages", "Read")
-
-displayBooks();
-
-
-
