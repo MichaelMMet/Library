@@ -17,8 +17,17 @@ function Book(title, author, pages, read){
   this.read = read
 }
 
-newBookButton.addEventListener("click", function(){
-    addBookToLirary();
+newBookButton.addEventListener("click", function(event){
+    let enteredTitle = document.getElementById("title").value;
+    let enteredAuthor = document.getElementById("author").value;
+    let enteredPages = document.getElementById("pages").value;
+    let enteredRead = document.getElementById("read").checked;
+    console.log(enteredTitle);
+    console.log(enteredAuthor);
+    console.log(enteredPages);
+    console.log(enteredRead);
+    event.preventDefault();
+    addBookToLirary(enteredTitle, enteredAuthor, enteredPages, enteredRead);
 
 });
 
@@ -27,6 +36,7 @@ function addBookToLirary(Title, Author, Pages, Read){
     //let author = bookAuthor.ariaValueMax;
     //console.log(book);
     myLibrary.push(book);
+    displayBooks();
 }
 
 function displayBooks(){
@@ -39,13 +49,21 @@ function displayBooks(){
         let boxTitle = document.createElement("p");
             boxTitle.textContent = currentBook.title;
         let boxPages = document.createElement("p");
-            boxPages.textContent = currentBook.pages
+            boxPages.textContent = currentBook.pages;
         let boxRead = document.createElement("p");
+        boxRead.textContent = "Status: " + (currentBook.read ? "Read" : "Not Read");
+
+        let removeBookButton = document.createElement("button");
+        removeBookButton.classList.add("removeBookButton");
+
+
         bookContainer.appendChild(newBox);
         newBox.classList.add("book")
         newBox.appendChild(boxTitle);
         newBox.appendChild(boxAuthor);
         newBox.appendChild(boxPages);
+        newBox.appendChild(boxRead);
+        nextBox.appendChild(removeBookButton);
     }
 
 }
