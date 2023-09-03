@@ -1,16 +1,15 @@
 .container{
     display: flex;
-flex-direction: row;
+flex-direction: column;
 align-items: center;
 justify-content: space-around;
 }
 
 .book-container{
-    width: 500px;
+    width: 800px;
     height: 500px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    grid-template-rows: repeat(3, 2fr);
+    grid-template-columns: repeat(auto-fit, minmax(220px, 3fr));
     justify-content: center;
 }
 
@@ -21,6 +20,12 @@ justify-content: space-around;
 .new-book-form{
      display: flex;
     flex-direction: column;
+    padding: 10px;
+    border-style: solid;
+    border-color: rgb(24, 42, 180);
+    border-radius: 5px;
+    margin-bottom: 10%;
+    
  
 }
 
@@ -49,12 +54,16 @@ width: 100px;
 
 .form-part{
   display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
     gap: 10px;
 }
 
 .alter-label{
-    width: 120px;
-    display: inline-block;
+
+}
+
+label{
+    display: flex;
+    justify-content: center;
 }
