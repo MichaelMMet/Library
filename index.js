@@ -16,6 +16,14 @@ function Book(title, author, pages, read){
   this.pages = pages
 
   this.read = read
+
+  this.changeRead = function(){
+    if(this.read.checked = true){
+        this.read.checked = false;
+    }else{
+        this.read.checked = true;
+    }
+  }
 }
 
 newBookButton.addEventListener("click", function(event){
@@ -64,6 +72,8 @@ function displayBooks(){
 
         let removeBookButton = document.createElement("button");
         removeBookButton.classList.add("remove-book-button");
+        let changeReadStatus = document.createElement("button");
+
 
 
 
@@ -75,6 +85,16 @@ function displayBooks(){
         newBox.appendChild(boxPages);
         newBox.appendChild(boxRead);
         newBox.appendChild(removeBookButton);
+        newBox.appendChild(changeReadStatus);
+
+        changeReadStatus.addEventListener("click",function(){
+            if(boxRead.textContent == "Status: Read"){
+                boxRead.textContent = "Status: Not Read";
+            }else {
+                boxRead.textContent = "Status: Read";
+            }
+            currentBook.changeRead();
+        });
 
         removeBookButton.addEventListener("click", function(){
             let removedItem = removeBookButton.parentNode;
