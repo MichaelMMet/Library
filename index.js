@@ -2,6 +2,7 @@ const authorInput = document.getElementById("author");
 const bookContainer = document.querySelector(".book-container");
 const newBookButton = document.querySelector(".new-book");
 const titleInput = document.getElementById("");
+const deleteBookButton = document.querySelector(".remove-book-button");
 //const newBookButton = document.querySelector();
 
 const myLibrary = [];
@@ -31,6 +32,14 @@ newBookButton.addEventListener("click", function(event){
 
 });
 
+/*
+deleteBookButton.addEventListener("click", function(event){
+    let removedItem = deleteBookButton.parentNode;
+    removedItem.remove();
+
+});
+*/
+
 function addBookToLirary(Title, Author, Pages, Read){
     let book = new Book(Title, Author, Pages, Read)
     //let author = bookAuthor.ariaValueMax;
@@ -57,6 +66,8 @@ function displayBooks(){
         removeBookButton.classList.add("remove-book-button");
 
 
+
+
         bookContainer.appendChild(newBox);
         newBox.classList.add("book")
         newBox.appendChild(boxTitle);
@@ -64,6 +75,11 @@ function displayBooks(){
         newBox.appendChild(boxPages);
         newBox.appendChild(boxRead);
         newBox.appendChild(removeBookButton);
+
+        removeBookButton.addEventListener("click", function(){
+            let removedItem = removeBookButton.parentNode;
+            removedItem.remove();
+        });
     }
 
 }
@@ -72,6 +88,8 @@ addBookToLirary("The Hobbit", "J.R.R. Tolkein", "123 pages", "not Read");
 addBookToLirary("Warriors: The Prophecies Begin", "Erin Hunter", "1111 pages", "Read")
 addBookToLirary("The Hobbit", "J.R.R. Tolkein", "123 pages", "not Read");
 addBookToLirary("Warriors: The Prophecies Begin", "Erin Hunter", "1111 pages", "Read")
+
+//document.querySelector(".remove-book-button").addEventListener('click', removeBook);
 
 
 
