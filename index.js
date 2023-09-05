@@ -54,7 +54,7 @@ function displayBooks(){
         boxRead.textContent = "Status: " + (currentBook.read ? "Read" : "Not Read");
 
         let removeBookButton = document.createElement("button");
-        removeBookButton.classList.add("removeBookButton");
+        removeBookButton.classList.add("remove-book-button");
 
 
         bookContainer.appendChild(newBox);
@@ -63,7 +63,7 @@ function displayBooks(){
         newBox.appendChild(boxAuthor);
         newBox.appendChild(boxPages);
         newBox.appendChild(boxRead);
-        nextBox.appendChild(removeBookButton);
+        newBox.appendChild(removeBookButton);
     }
 
 }
