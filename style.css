@@ -21,26 +21,18 @@ justify-content: space-around;
      display: flex;
     flex-direction: column;
     padding: 10px;
-    border-style: solid;
-    border-color: rgb(24, 42, 180);
     border-radius: 5px;
     margin-bottom: 10%;
-    
- 
 }
 
+
+
 .form{
-    
-    
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    
     width: 80%;
     height: 400px;
- 
-    
-
 }
 
 .show-form{
@@ -50,13 +42,17 @@ width: 100px;
 }
     
 
-
+ 
 
 .form-part{
   display: flex;
     flex-direction: column;
     justify-content: space-between;
     gap: 10px;
+    border-top: 1px solid white;
+    width: 100%;
+    padding-left: 15px;
+    padding-top: 15px;
 }
 
 .alter-label{
@@ -71,4 +67,27 @@ label{
 .remove-book-button{
     width: 100px;
     height: 50px;
+}
+
+.side-bar{
+    position: fixed;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background: lightcyan;
+}
+
+.side-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    color: black;
+    font-size: 22px;
+    text-align: center;
+    padding: 10px;
+}
+
+body{
+    padding:0;
+    margin: 0;
 }
