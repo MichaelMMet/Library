@@ -72,7 +72,10 @@ function displayBooks(){
 
         let removeBookButton = document.createElement("button");
         removeBookButton.classList.add("remove-book-button");
+        removeBookButton.textContent = "Remove Book"
         let changeReadStatus = document.createElement("button");
+        changeReadStatus.classList.add("change-read-button");
+        changeReadStatus.textContent = "Change read status"
 
 
 

@@ -1,8 +1,10 @@
-.container{
+
+
+body{
+    padding:0;
+    margin: 0;
     display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: space-around;
+    justify-content:flex-end;
 }
 
 .book-container{
@@ -10,19 +12,21 @@ justify-content: space-around;
     height: 500px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 3fr));
-    justify-content: center;
+    justify-content:flex-end;
 }
 
 .book{
     border: 2px solid black;
+    text-align: center;
+    font-size: 20px;
 }
 
 .new-book-form{
      display: flex;
-    flex-direction: column;
     padding: 10px;
     border-radius: 5px;
     margin-bottom: 10%;
+    
 }
 
 
@@ -31,16 +35,8 @@ justify-content: space-around;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 80%;
-    height: 400px;
+    width: 100%;
 }
-
-.show-form{
-display: flex;
-flex-direction: column;
-width: 100px;
-}
-    
 
  
 
@@ -50,14 +46,13 @@ width: 100px;
     justify-content: space-between;
     gap: 10px;
     border-top: 1px solid white;
+    border-bottom: 1px solid black;
+    padding-bottom: 50px;
     width: 100%;
-    padding-left: 15px;
     padding-top: 15px;
-}
-
-.alter-label{
 
 }
+
 
 label{
     display: flex;
@@ -69,19 +64,25 @@ label{
     height: 50px;
 }
 
+.change-read-button{
+    width: 100px;
+    height: 50px; 
+}
+
 .side-bar{
     position: fixed;
-    left: 0;
+    left: 0px;
     width: 250px;
     height: 100%;
+
     background: lightcyan;
+    transition: all .5s ease;
 }
 
 .side-header{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    color: black;
     font-size: 22px;
     text-align: center;
     padding: 10px;
@@ -90,4 +91,43 @@ label{
 body{
     padding:0;
     margin: 0;
+    display: flex;
+    justify-content:flex-end;
+}
+
+.new-book{
+    position: relative;
+    width: 50%;
+    left: 50px;
+
+}
+
+#check{
+    display: none;
+}
+
+
+
+#cancel{
+    position: fixed;
+    cursor: pointer;  
+border-radius: 3px; 
+z-index: 1111;
+left: 195px;
+font-size: 30px;
+padding: 4px 9px;
+}
+
+#btn{
+    left: 40px;
+    top: 25px;
+    font-size: 35px;
+    color: rgb(40, 116, 183);
+    position: fixed;
+    cursor: pointer;
+border-radius: 3px;
+}
+
+#check:checked ~ .side-bar{
+    left: 0;
 }
